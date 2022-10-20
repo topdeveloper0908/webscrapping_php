@@ -18,8 +18,7 @@ h1.login-title {
     font-size: 15px;
     border: 1px solid #ccc;
     padding: 10px;
-    margin-bottom: 25px;
-    height: 25px;
+    margin-bottom: 25px;    
     width: calc(100% - 23px);
 }
 .login-input:focus {
@@ -32,7 +31,6 @@ h1.login-title {
     border: 0;
     outline: 0;
     width: 100%;
-    height: 50px;
     font-size: 16px;
     text-align: center;
     cursor: pointer;
@@ -54,14 +52,23 @@ h3 {
 button {
     color: #fff;
     background: #55a1ff;
-    border: 0;
+    border: 1px solid transparent;
     outline: 0;
-    height: 50px;
+    height: 40px;
     font-size: 16px;
     text-align: center;
     cursor: pointer;
     border-radius: .3rem;
     padding: 0 1rem;
+    transition:  all .3s;
+}
+button:not(.disable):hover {
+    border-color: #55a1ff;
+    color: #55a1ff;
+    background-color: white;
+}
+button.disable {
+    cursor: not-allowed;
 }
 .header {
     display: flex;
@@ -75,7 +82,7 @@ button {
 .add_url {
     border: 1px solid #ccc;
     padding: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .add_url div {
     display: flex;
@@ -86,3 +93,26 @@ button {
 .add_url input {
     margin: 0 1rem;
 }
+
+#url_table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #url_table td, #url_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #url_table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #url_table tr:hover {background-color: #ddd;}
+  
+  #url_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #55a1ff;
+    color: white;
+  }

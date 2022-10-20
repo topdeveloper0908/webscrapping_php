@@ -32,6 +32,7 @@
                 // If the user is verfied
                 else {
                     $_SESSION['username'] = $username;
+                    $_SESSION['id'] = $row['id'];
                     // Redirect to user dashboard page
                     header("Location: dashboard.php");
                 }

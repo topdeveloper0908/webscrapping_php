@@ -50,34 +50,34 @@
 
         $query    = "SELECT code, active FROM users WHERE email='" .$email."'";
 
-        $result   = mysqli_query($con, $query);
+        //$result   = mysqli_query($con, $query);
 
         // If the user is exist in the DB
-        if (mysqli_num_rows($result) > 0) {
-            // output data of each row
-            while($row = mysqli_fetch_assoc($result)) {
-                if($row['active'] == '0') {
-                    send_activation_email($email, $row['code']);
-                    echo "<div class='form'>
-                        <h3>Please verify your email address.</h3><br/>
-                        </div>";
-                } else {
-                    echo "<div class='form'>
-                        <h3>You've already register Go to the <a href='login.php'>Login</a></h3><br/>
-                        </div>";
-                }
-            }
-        } 
-        // If the user is not exist in the DB
-        else {
-            $query    = "INSERT into `users` (username, password, email, create_datetime, code)
-                     VALUES ('$username', '" . md5($password) . "', '$email', '$create_datetime', '$code')";
-            $result   = mysqli_query($con, $query);
-            send_activation_email($email, $code);
-            echo "<div class='form'>
-                  <h3>Please verify your email address.</h3><br/>
-                  </div>";
-        }
+        send_activation_email($email, $row['code']);
+        // if (mysqli_num_rows($result) > 0) {
+        //     // output data of each row
+        //     while($row = mysqli_fetch_assoc($result)) {
+        //         if($row['active'] == '0') {
+        //             echo "<div class='form'>
+        //                 <h3>Please verify your email address.</h3><br/>
+        //                 </div>";
+        //         } else {
+        //             echo "<div class='form'>
+        //                 <h3>You've already register Go to the <a href='login.php'>Login</a></h3><br/>
+        //                 </div>";
+        //         }
+        //     }
+        // } 
+        // // If the user is not exist in the DB
+        // else {
+        //     $query    = "INSERT into `users` (username, password, email, create_datetime, code)
+        //              VALUES ('$username', '" . md5($password) . "', '$email', '$create_datetime', '$code')";
+        //     $result   = mysqli_query($con, $query);
+        //     send_activation_email($email, $code);
+        //     echo "<div class='form'>
+        //           <h3>Please verify your email address.</h3><br/>
+        //           </div>";
+        // }
     } else {
 ?>
     <form class="form" action="" method="post">
